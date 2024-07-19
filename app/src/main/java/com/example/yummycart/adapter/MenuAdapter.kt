@@ -19,4 +19,4 @@ class MenuAdapter(private val menuItems:MutableList<String>,private val menuItem
     inner class MenuViewHolder {
 
     }
-}
+}      
