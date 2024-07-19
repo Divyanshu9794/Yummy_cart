@@ -24,15 +24,20 @@
 
             <ImageView
                 android:id="@+id/cartimage"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="62dp"
+                android:layout_height="62dp"
+                android:layout_marginStart="16dp"
                 android:scaleType="centerCrop"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
                 tools:srcCompat="@tools:sample/avatars" />
 
             <TextView
                 android:id="@+id/cartfoodname"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
                 android:text="TextView"
                 app:layout_constraintBottom_toTopOf="@+id/cartitemprice"
                 app:layout_constraintStart_toEndOf="@+id/cartimage"
@@ -42,6 +47,7 @@
                 android:id="@+id/cartitemprice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
                 android:text="TextView"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/cartimage"
@@ -88,9 +94,11 @@
                 android:id="@+id/deletebutton"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="8dp"
                 android:layout_marginEnd="12dp"
+                android:layout_marginBottom="16dp"
                 android:background="@android:color/transparent"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/plusbutton"
                 app:layout_constraintHorizontal_bias="0.687"
                 app:layout_constraintStart_toStartOf="@+id/minusbutton"
