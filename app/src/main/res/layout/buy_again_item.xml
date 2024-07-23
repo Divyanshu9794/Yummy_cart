@@ -23,7 +23,7 @@
             android:layout_height="match_parent">
 
             <ImageView
-                android:id="@+id/imageView4"
+                android:id="@+id/BuyAgainFoodImage"
                 android:layout_width="62dp"
                 android:layout_height="62dp"
                 android:layout_marginStart="8dp"
@@ -35,37 +35,38 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/textView21"
+                android:id="@+id/BuyAgainFoodName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:textSize="16sp"
                 android:text="Food Name"
-                app:layout_constraintBottom_toTopOf="@+id/textView22"
-                app:layout_constraintStart_toEndOf="@+id/imageView4"
+                app:layout_constraintBottom_toTopOf="@+id/BuyAgainFoodPrice"
+                app:layout_constraintStart_toEndOf="@+id/BuyAgainFoodImage"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/textView22"
+                android:id="@+id/BuyAgainFoodPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="₹10"
                 android:textSize="20sp"
                 android:textColor="@color/texy_color"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/textView21"
-                app:layout_constraintTop_toBottomOf="@+id/textView21" />
+                app:layout_constraintStart_toStartOf="@+id/BuyAgainFoodName"
+                app:layout_constraintTop_toBottomOf="@+id/BuyAgainFoodName" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/BuyAgainFoodButton'"
                 android:layout_width="85dp"
                 android:layout_height="30dp"
+                android:layout_marginEnd="32dp"
                 android:background="@drawable/addtocartshape"
+                android:text="Buy Again"
+
+                android:textAllCaps="false"
                 android:textColor="@color/black"
                 android:textSize="14sp"
-                android:textAllCaps="false"
-
-                android:layout_marginEnd="32dp"
-                android:text="Buy Again"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
