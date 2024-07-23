@@ -3,10 +3,9 @@ package com.example.yummycart.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.yummycart.databinding.FragmentMenuBottomSheetBinding
 import com.example.yummycart.databinding.MenuItemBinding
 
-class MenuAdapter(private val menuItemsName:MutableList<String>,private val menuItemprice: MutableList<String>, private val MenuImage:MutableList<Int>): RecyclerView.Adapter<MenuAdapter.MenuViewHolder>() {
+class MenuAdapter(private val menuItemsName: List<String>, private val menuItemprice: List<String>, private val MenuImage: List<Int>): RecyclerView.Adapter<MenuAdapter.MenuViewHolder>() {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MenuViewHolder {
