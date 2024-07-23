@@ -25,7 +25,7 @@ class HistoryFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentHistoryBinding.inflate(layoutInflater,container,false)
-//        setuprecyclerview()
+        setuprecyclerview()
 
         return binding.root
     }
