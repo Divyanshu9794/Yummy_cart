@@ -1,22 +1,34 @@
 package com.example.yummycart.adapter
 
+import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.yummycart.databinding.NotificationItemBinding
 
-class NotificationAdapter: RecyclerView.Adapter<NotificationAdapter.NotificationViewHolder>() {
-    inner class NotificationViewHolder {
+class NotificationAdapter(private var notification: ArrayList<String>,private var notificationImage:ArrayList<Int>):
+    RecyclerView.Adapter<NotificationAdapter.NotificationViewHolder>() {
 
-    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NotificationViewHolder {
-        TODO("Not yet implemented")
+        val binding = NotificationItemBinding.inflate(LayoutInflater.from(parent.context),parent,false)
+        return NotificationViewHolder(binding)
     }
 
-    override fun getItemCount(): Int {
-        TODO("Not yet implemented")
-    }
 
     override fun onBindViewHolder(holder: NotificationViewHolder, position: Int) {
-        TODO("Not yet implemented")
+        holder.bind(position)
+    }
+
+    override fun getItemCount(): Int =notification.size
+
+    inner class NotificationViewHolder(private val binding:NotificationItemBinding):RecyclerView.ViewHolder(binding.root) {
+        fun bind(position: Int) {
+            binding.apply {
+                notificationTextview.text = notification[position]
+                notificationimageview.setImageResource(notificationImage[position])
+
+            }
+        }
+
     }
 }
