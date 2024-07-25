@@ -26,6 +26,7 @@ class MenuAdapter(private val menuItemsName: List<String>, private val menuItemp
                 menuprice.text=menuItemprice[position]
                 menuImage.setImageResource(MenuImage[position])
             }
+            
         }
 
 
