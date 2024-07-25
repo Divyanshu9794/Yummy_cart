@@ -1,11 +1,13 @@
 package com.example.yummycart.Fragment
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.yummycart.PayOutActivity
 import com.example.yummycart.R
 import com.example.yummycart.adapter.CartAdapter
 import com.example.yummycart.databinding.FragmentCartBinding
@@ -56,6 +58,10 @@ class CartFragment : Fragment() {
         val adapter= CartAdapter(ArrayList(foodname),ArrayList(Price),ArrayList(cartImage))
         binding.cartrecyclerview.layoutManager = LinearLayoutManager(requireContext())
         binding.cartrecyclerview.adapter = adapter
+        binding.proceedbutton.setOnClickListener{
+            val intent = Intent(requireContext(),PayOutActivity::class.java)
+            startActivity(intent)
+        }
         return binding.root
     }
 
