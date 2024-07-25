@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.yummycart.adapter.NotificationAdapter
 import com.example.yummycart.databinding.FragmentNotificationBottomBinding
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
@@ -31,6 +32,8 @@ class NotificationBottomFragment : BottomSheetDialogFragment() {
             R.drawable.truck,R.drawable.congrats)
         val adapter = NotificationAdapter(ArrayList(notification), ArrayList(notificationimages))
 
+        binding.notifiactionRecyclerView.layoutManager=LinearLayoutManager(requireContext())
+        binding.notifiactionRecyclerView.adapter=adapter
         return binding.root
     }
 

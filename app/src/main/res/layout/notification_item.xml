@@ -36,8 +36,9 @@
 
                 <ImageView
                     android:id="@+id/notificationimageview"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:scaleType="centerCrop"
                     tools:srcCompat="@tools:sample/avatars" />
 
             </androidx.cardview.widget.CardView>
@@ -46,10 +47,11 @@
                 android:id="@+id/notificationTextview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="32dp"
+                android:layout_marginStart="28dp"
                 android:text="TextView"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/cardView3"
+                android:inputType="textMultiLine"
                 app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
