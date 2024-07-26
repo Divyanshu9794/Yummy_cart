@@ -81,16 +81,16 @@ class HomeFragment : Fragment() {
             "₹110", "₹50", "₹140", "₹160", "₹130", "₹90", "₹100", "₹70", "₹150", "₹120", "₹60", "₹110",
             "₹80", "₹90", "₹100", "₹150", "₹70", "₹60")
 
-        val popularfoodImages = listOf(R.drawable.menu1,R.drawable.menu2,R.drawable.menu3,R.drawable.menu4,
-            R.drawable.menu1,R.drawable.menu2,R.drawable.menu3,R.drawable.menu4,
-            R.drawable.menu1,R.drawable.menu2,R.drawable.menu3,R.drawable.menu4,
-            R.drawable.menu1,R.drawable.menu2,R.drawable.menu3,R.drawable.menu4,
-            R.drawable.menu1,R.drawable.menu2,R.drawable.menu3,R.drawable.menu4,
-            R.drawable.menu1,R.drawable.menu2,R.drawable.menu3,R.drawable.menu4,
-            R.drawable.menu1,R.drawable.menu2,R.drawable.menu3,R.drawable.menu4,
-            R.drawable.menu1,R.drawable.menu2,R.drawable.menu3,R.drawable.menu4,
-            R.drawable.menu1,R.drawable.menu2,R.drawable.menu3,R.drawable.menu4,
-            R.drawable.menu1,R.drawable.menu2,R.drawable.menu3,R.drawable.menu4)
+        val popularfoodImages = listOf(R.drawable.burger,R.drawable.palakpaneer,R.drawable.cholebhature,R.drawable.samosa,R.drawable.aloogobhi,
+            R.drawable.paneertikka,R.drawable.masaladosa,R.drawable.dalmakhani,R.drawable.panipuri,
+            R.drawable.gulabjamun,R.drawable.pavbhaji,R.drawable.malaikofta,R.drawable.bhindimasala,
+            R.drawable.matarpaneer,R.drawable.rajma,R.drawable.baiganbharta,R.drawable.vegetablebiryani,
+            R.drawable.alootikki,R.drawable.dhokla,R.drawable.kadhipakora,R.drawable.rasam,
+            R.drawable.idli,R.drawable.upma,R.drawable.poha,R.drawable.alooparatha,
+            R.drawable.dosa,R.drawable.pesarattu,R.drawable.vada,R.drawable.sabudanakhichadi,
+            R.drawable.thepla,R.drawable.appam,R.drawable.misalpaav,R.drawable.meduvada,
+            R.drawable.cholekulche,R.drawable.puttu,R.drawable.moongdalchilla,R.drawable.besanchilla,
+            R.drawable.pongal,R.drawable.vegetablesandwich,R.drawable.breadpakora)
         val adapter = PopularAdapter(foodname,Price,popularfoodImages,requireContext())
         binding.popularRecyclerView.layoutManager =LinearLayoutManager(requireContext())
         binding.popularRecyclerView.adapter = adapter
