@@ -1,5 +1,6 @@
 package com.example.yummycart
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import androidx.activity.enableEdgeToEdge
@@ -25,7 +26,12 @@ class ChooseLoactionActivity : AppCompatActivity() {
             "Sahaswan","Basti","Chandausi","Akbarpur","Ballia","Tanda","Greater Noida","Shikohabad","Shamli","Awagarh")
         val adapter = ArrayAdapter(this,android.R.layout.simple_list_item_1,loactionlist)
         val autoCompleteTextView = binding.listoflocation
+
         autoCompleteTextView.setAdapter(adapter)
+        binding.setnext.setOnClickListener{
+            val  intent = Intent(this,MainActivity::class.java)
+            startActivity(intent)
+        }
 
     }
 }
