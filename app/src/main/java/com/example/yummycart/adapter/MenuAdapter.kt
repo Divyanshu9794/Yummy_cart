@@ -30,8 +30,14 @@ class MenuAdapter(private val menuItemsName: List<String>, private val menuItemp
             binding.root.setOnClickListener{
                 val position = adapterPosition
                 if(position!=RecyclerView.NO_POSITION){
-                    itemClickListener.onItemClick(position)
+                    itemClickListener?.onItemClick(position)
                 }
+                //set on click listener to open food details
+
+                val intent = Intent( requireContext,DetailsActivity::class.java )
+                intent.putExtra("MenuItemName",menuItemsName.get(position))
+                intent.putExtra("MenuItemImage",MenuImage.get(position))
+                requireContext.startActivity(intent)
             }
         }
         fun bind(position: Int) {
@@ -40,21 +46,19 @@ class MenuAdapter(private val menuItemsName: List<String>, private val menuItemp
                 menuprice.text=menuItemprice[position]
                 menuImage.setImageResource(MenuImage[position])
 
-                //set on click listener to open food details
 
-                val intent = Intent( requireContext,DetailsActivity::class.java )
-                intent.putExtra("MenuItemName",menuItemsName.get(position))
-                intent.putExtra("MenuItemImage",MenuImage.get(position))
-                requireContext.startActivity(intent)
             }
 
         }
 
 
     }
+
+    interface OnClickListener{
+
+        fun onItemClick(position: Int)
+
+    }
+
 }
 
-private fun OnClickListener?.onItemClick(position: Int) {
-
-
-}
