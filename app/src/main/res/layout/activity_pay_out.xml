@@ -58,7 +58,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:paddingLeft="8dp"
-                android:text="Name" />
+                android:text="Name"
+                android:textColor="@color/black" />
 
             <EditText
                 android:layout_width="wrap_content"
@@ -67,7 +68,8 @@
                 android:background="@android:color/transparent"
                 android:ems="10"
                 android:inputType="text"
-                android:text="Name" />
+                android:text="Name"
+                android:textColor="@color/black" />
         </LinearLayout>
 
         <LinearLayout
@@ -89,7 +91,8 @@
 
                 android:layout_weight="1"
                 android:paddingLeft="8dp"
-                android:text="Address" />
+                android:text="Address"
+                android:textColor="@color/black" />
 
             <EditText
                 android:layout_width="wrap_content"
@@ -101,7 +104,8 @@
                 android:background="@android:color/transparent"
                 android:ems="10"
                 android:inputType="textMultiLine"
-                android:text="Lorem Ipsum bla blaLorem Ipsum bla blaLorem Ipsum bla blaLorem Ipsum bla blaLorem Ipsum bla bla" />
+                android:text="Lorem Ipsum bla blaLorem Ipsum bla blaLorem Ipsum bla blaLorem Ipsum bla blaLorem Ipsum bla bla"
+                android:textColor="@color/black" />
         </LinearLayout>
 
         <LinearLayout
@@ -122,7 +126,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:paddingLeft="8dp"
-                android:text="Phone" />
+                android:text="Phone"
+                android:textColor="@color/black" />
 
             <EditText
                 android:layout_width="wrap_content"
@@ -131,7 +136,8 @@
                 android:background="@android:color/transparent"
                 android:ems="10"
                 android:inputType="text"
-                android:text="0123456789" />
+                android:text="0123456789"
+                android:textColor="@color/black" />
         </LinearLayout>
 
         <LinearLayout
@@ -154,7 +160,8 @@
 
 
                 android:paddingLeft="8dp"
-                android:text="Payment Method" />
+                android:text="Payment Method"
+                android:textColor="@color/black" />
 
             <ImageView
                 android:id="@+id/imageView4"
@@ -186,7 +193,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:paddingLeft="8dp"
-                android:text="Total Amount" />
+                android:text="Total Amount"
+                android:textColor="@color/black" />
 
             <EditText
                 android:layout_width="wrap_content"
