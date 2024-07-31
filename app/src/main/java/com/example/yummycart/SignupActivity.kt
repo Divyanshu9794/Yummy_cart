@@ -8,8 +8,12 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.yummycart.databinding.ActivitySignupBinding
 import com.example.yummycart.databinding.ActivityStartBinding
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DatabaseReference
 
 class SignupActivity : AppCompatActivity() {
+
+
     private val binding: ActivitySignupBinding by lazy{
         ActivitySignupBinding.inflate(layoutInflater)
     }
