@@ -6,12 +6,14 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.yummycart.databinding.ActivitySignupBinding
 import com.example.yummycart.databinding.ActivityStartBinding
 import com.example.yummycart.model.UserModel
+import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.firebase.Firebase
@@ -31,7 +33,7 @@ class SignupActivity : AppCompatActivity() {
 
     private lateinit var auth :FirebaseAuth
     private lateinit var database: DatabaseReference
-    private lateinit var googlegninClient: GoogleSignInClient
+    private lateinit var googlesigninClient: GoogleSignInClient
 
     private val binding: ActivitySignupBinding by lazy{
         ActivitySignupBinding.inflate(layoutInflater)
@@ -40,6 +42,8 @@ class SignupActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         setContentView(binding.root)
+        val googleSignInOptions = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+            .requestIdToken(getString(R.string.default_web_client_id)).requestEmail().build()
 
         //Initializing firebase database
 
@@ -47,6 +51,8 @@ class SignupActivity : AppCompatActivity() {
 
         //initializing firebase auth
         database = Firebase.database.reference
+
+        googlesigninClient = GoogleSignIn.getClient(this,googleSignInOptions)
 
         binding.createaccountbutton.setOnClickListener {
             username = binding.username.text.toString()
@@ -69,7 +75,16 @@ class SignupActivity : AppCompatActivity() {
 
         }
 
+        binding.googlebutton.setOnClickListener {
+            val signIntent = googlesigninClient.signInIntent
 
+        }
+
+
+    }
+
+    private val launcher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()){
+        
     }
 
     private fun createAccount(email: String, password: String) {
