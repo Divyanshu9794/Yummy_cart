@@ -96,6 +96,7 @@ class SignupActivity : AppCompatActivity() {
                     val credential = GoogleAuthProvider.getCredential(account?.idToken, null)
                     auth.signInWithCredential(credential).addOnCompleteListener { task ->
                         if (task.isSuccessful) {
+                            Toast.makeText(this, "SignedIn Successfully", Toast.LENGTH_SHORT).show()
                             startActivity(Intent(this, MainActivity::class.java))
                             finish()
                         } else {
