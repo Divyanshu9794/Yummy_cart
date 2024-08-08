@@ -26,7 +26,7 @@ class PayOutActivity : AppCompatActivity() {
     private lateinit var databaseReference: DatabaseReference
     private lateinit var userId:String
 
-    
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
