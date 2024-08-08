@@ -23,7 +23,8 @@ class CartAdapter(
     private val cartitemPrice: MutableList<String>,
     private val cartImage: MutableList<String>,
     private val cartDescription: MutableList<String>,
-    private val cartQuantity: MutableList<Int>
+    private val cartQuantity: MutableList<Int>,
+    private var cartIngredient:MutableList<String>
 ) :
     RecyclerView.Adapter<CartAdapter.CartViewHolder>() {
 
@@ -61,6 +62,7 @@ class CartAdapter(
                 val quantity = itemQuantity[position]
                 cartfoodname.text = cartItem[position]
                 cartitemprice.text = cartitemPrice[position]
+                car
 
                 val uriString = cartImage[position]
                 val uri = Uri.parse(uriString)
@@ -114,6 +116,7 @@ class CartAdapter(
                     cartDescription.removeAt(position)
                     cartQuantity.removeAt(position)
                     cartitemPrice.removeAt(position)
+                    cartIngredient.removeAt(position)
                     Toast.makeText(context,"Item Removed Successfully",Toast.LENGTH_SHORT).show()
                     //updating the item quantity
 
