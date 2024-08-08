@@ -2,12 +2,18 @@ package com.example.yummycart.adapter
 
 import android.content.Context
 import android.gesture.GestureLibrary
+import android.graphics.drawable.Drawable
 import android.net.Uri
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.DataSource
+import com.bumptech.glide.load.engine.GlideException
+import com.bumptech.glide.request.RequestListener
+import com.bumptech.glide.request.target.Target
 import com.example.yummycart.databinding.CartItemBinding
 import com.example.yummycart.databinding.FragmentProfileBinding
 import com.google.firebase.auth.FirebaseAuth
@@ -21,8 +27,8 @@ class CartAdapter(
     private val context: Context,
     private val cartItem: MutableList<String>,
     private val cartitemPrice: MutableList<String>,
-    private val cartImage: MutableList<String>,
     private val cartDescription: MutableList<String>,
+    private val cartImage: MutableList<String>,
     private val cartQuantity: MutableList<Int>,
     private var cartIngredient:MutableList<String>
 ) :
@@ -65,7 +71,9 @@ class CartAdapter(
 
 
                 val uriString = cartImage[position]
+//                Log.d("image", "food Url: $uriString")
                 val uri = Uri.parse(uriString)
+
                 Glide.with(context).load(uri).into(cartimage)
 
                 cartItemQuantity.text = quantity.toString()
