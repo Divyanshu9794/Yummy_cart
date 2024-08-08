@@ -1,6 +1,7 @@
 package com.example.yummycart
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -53,21 +54,30 @@ class MenuBottomSheetFragment : BottomSheetDialogFragment() {
                     val menuItem = foodSnapshot.getValue(MenuItem::class.java)
                     menuItem?.let { menuItems.add(it) }
                 }
+                Log.d("ITEMS","setAdapter:data received")
 
                 setAdapter()
             }
 
-            private fun setAdapter() {
-                val adapter = MenuAdapter(menuItems, requireContext())
-                binding.menuRecyclerView.layoutManager = LinearLayoutManager(requireContext())
-                binding.menuRecyclerView.adapter = adapter
-            }
+
 
             override fun onCancelled(error: DatabaseError) {
 
             }
 
         })
+    }
+    private fun setAdapter() {
+        if(menuItems.isNotEmpty()) {
+            val adapter = MenuAdapter(menuItems, requireContext())
+            binding.menuRecyclerView.layoutManager = LinearLayoutManager(requireContext())
+            binding.menuRecyclerView.adapter = adapter
+            Log.d("ITEMS","setAdapter:data set")
+
+        }
+        else{
+            Log.d("ITEMS","setAdapter:data not set")
+        }
     }
 
     companion object {

@@ -48,10 +48,10 @@ class MenuAdapter(
             val menuItem = menuItems[position]
             val intent = Intent(requireContext, DetailsActivity::class.java).apply {
                 putExtra("MenuItemName", menuItem.foodName)
-                putExtra("MenuItemImage", menuItem.foodimageurl)
-                putExtra("MenuItemDescription", menuItem.fooddescription)
-                putExtra("MenuItemIngredients", menuItem.foodingredients)
-                putExtra("MenuItemPrice", menuItem.foodprice)
+                putExtra("MenuItemImage", menuItem.foodImage)
+                putExtra("MenuItemDescription", menuItem.foodDescription)
+                putExtra("MenuItemIngredients", menuItem.foodIngredient)
+                putExtra("MenuItemPrice", menuItem.foodPrice)
             }
             requireContext.startActivity(intent)
 
@@ -63,8 +63,8 @@ class MenuAdapter(
             val menuItem = menuItems[position]
             binding.apply {
                 menufoodname.text = menuItem.foodName
-                menuprice.text = menuItem.foodprice
-                val uri = Uri.parse(menuItem.foodimageurl)
+                menuprice.text = menuItem.foodPrice
+                val uri = Uri.parse(menuItem.foodImage)
                 Glide.with(requireContext).load(uri).into(menuImage)
 
 

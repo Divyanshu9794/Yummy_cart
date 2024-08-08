@@ -2,9 +2,11 @@ package com.example.yummycart.model
 
 data class MenuItem(
     val foodName :String?=null,
-    val foodprice :String?=null,
-    val fooddescription :String?=null,
-    val foodimageurl :String?=null,
-    val foodingredients :String?=null,
+    val foodPrice :String?=null,
+    val foodDescription
+    :String?=null,
+    val foodImage :String?=null,
+    val foodIngredient
+    :String?=null,
 
 )
