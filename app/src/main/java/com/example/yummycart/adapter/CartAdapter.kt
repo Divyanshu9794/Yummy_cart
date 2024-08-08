@@ -62,7 +62,7 @@ class CartAdapter(
                 val quantity = itemQuantity[position]
                 cartfoodname.text = cartItem[position]
                 cartitemprice.text = cartitemPrice[position]
-                car
+
 
                 val uriString = cartImage[position]
                 val uri = Uri.parse(uriString)
