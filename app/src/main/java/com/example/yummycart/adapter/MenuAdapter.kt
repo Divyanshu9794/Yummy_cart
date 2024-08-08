@@ -10,7 +10,12 @@ import com.example.yummycart.DetailsActivity
 import com.example.yummycart.databinding.MenuItemBinding
 
 @Suppress("DEPRECATION")
-class MenuAdapter(private val menuItemsName: List<String>, private val menuItemprice: List<String>, private val MenuImage: List<Int>, private val requireContext:Context): RecyclerView.Adapter<MenuAdapter.MenuViewHolder>() {
+class MenuAdapter(
+    private val menuItemsName: List<String>,
+    private val menuItemprice: List<String>,
+    private val MenuImage: List<Int>,
+    private val requireContext:Context)
+    : RecyclerView.Adapter<MenuAdapter.MenuViewHolder>() {
 
 
     private val itemClickListener:OnClickListener ?= null
