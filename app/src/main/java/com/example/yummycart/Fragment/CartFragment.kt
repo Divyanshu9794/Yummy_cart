@@ -16,6 +16,8 @@ import com.example.yummycart.databinding.FragmentCartBinding
 class CartFragment : Fragment() {
 
     private lateinit var binding:FragmentCartBinding
+
+    
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
