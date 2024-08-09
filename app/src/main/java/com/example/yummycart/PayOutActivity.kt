@@ -92,6 +92,7 @@ class PayOutActivity : AppCompatActivity() {
     }
 
     private fun placeOrder() {
+
         userId  = auth.currentUser?.uid?:""
         val time = System.currentTimeMillis()
         val itemPushKey = databaseReference.child("OrderDetails").push().key
@@ -102,7 +103,8 @@ class PayOutActivity : AppCompatActivity() {
         orderReference.setValue(orderDetails).addOnSuccessListener {
             val bottomSheetDialog = CongratsBottomSheet()
             bottomSheetDialog.show(supportFragmentManager,"Test")
-            
+            finish()
+
         }
     }
 
