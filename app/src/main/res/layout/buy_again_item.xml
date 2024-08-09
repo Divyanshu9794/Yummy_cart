@@ -24,7 +24,7 @@
             android:layout_height="match_parent">
 
             <ImageView
-                android:id="@+id/BuyAgainFoodImage"
+                android:id="@+id/buyAgainFoodImage"
                 android:layout_width="62dp"
                 android:layout_height="62dp"
                 android:layout_marginStart="8dp"
@@ -36,26 +36,26 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/BuyAgainFoodName"
+                android:id="@+id/buyAgainFoodName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:textSize="16sp"
                 android:text="Food Name"
-                app:layout_constraintBottom_toTopOf="@+id/BuyAgainFoodPrice"
-                app:layout_constraintStart_toEndOf="@+id/BuyAgainFoodImage"
+                app:layout_constraintBottom_toTopOf="@+id/buyAgainFoodPrice"
+                app:layout_constraintStart_toEndOf="@+id/buyAgainFoodImage"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/BuyAgainFoodPrice"
+                android:id="@+id/buyAgainFoodPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="₹10"
                 android:textSize="20sp"
                 android:textColor="@color/texy_color"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/BuyAgainFoodName"
-                app:layout_constraintTop_toBottomOf="@+id/BuyAgainFoodName" />
+                app:layout_constraintStart_toStartOf="@+id/buyAgainFoodName"
+                app:layout_constraintTop_toBottomOf="@+id/buyAgainFoodName" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/BuyAgainFoodButton"
