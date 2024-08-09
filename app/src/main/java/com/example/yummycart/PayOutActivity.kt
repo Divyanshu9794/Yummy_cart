@@ -12,6 +12,7 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import kotlin.time.times
 
 class PayOutActivity : AppCompatActivity() {
     lateinit var binding:ActivityPayOutBinding
@@ -26,7 +27,7 @@ class PayOutActivity : AppCompatActivity() {
     private lateinit var foodItemImage:ArrayList<String>
     private lateinit var foodItemDescription:ArrayList<String>
     private lateinit var foodItemIngredient:ArrayList<String>
-    private lateinit var foodItemQuantities:ArrayList<String>
+    private lateinit var foodItemQuantities:ArrayList<Int>
     private lateinit var databaseReference: DatabaseReference
     private lateinit var userId:String
 
@@ -42,6 +43,27 @@ class PayOutActivity : AppCompatActivity() {
         auth= FirebaseAuth.getInstance()
         databaseReference = FirebaseDatabase.getInstance().getReference()
         setUserData()
+
+        //get user details from firebase
+
+        val intent = intent
+        foodItemName = intent.getStringArrayListExtra("FoodItemName") as ArrayList<String>
+
+        foodItemPrice= intent.getStringArrayListExtra("FoodItemPrice") as ArrayList<String>
+        foodItemImage= intent.getStringArrayListExtra("FoodItemImage") as ArrayList<String>
+        foodItemDescription= intent.getStringArrayListExtra("FoodItemDescription") as ArrayList<String>
+        foodItemIngredient= intent.getStringArrayListExtra("FoodItemIngredient") as ArrayList<String>
+        foodItemQuantities = intent.getIntegerArrayListExtra("FoodItemQuantities") as ArrayList<Int>
+
+
+        totalamount = calculateTotalAmount().toString()+"₹"
+        binding.totalAmount.isEnabled = false
+        binding.totalAmount.setText(totalamount)
+
+
+
+
+
         binding.placemyorder.setOnClickListener{
 
             val bottomSheetDialog =CongratsBottomSheet()
@@ -49,6 +71,31 @@ class PayOutActivity : AppCompatActivity() {
 
         }
     }
+
+    private fun calculateTotalAmount(): Int {
+        var totalAmount = 0
+
+        // Assuming foodItemPrice and foodItemQuantities are lists of the same size
+        for (i in 0 until foodItemPrice.size) {
+            val price = foodItemPrice[i]
+
+            // Remove currency symbol if present and convert to integer
+            val priceIntValue = if (price.last() == '₹') {
+                price.dropLast(1).toInt()
+            } else {
+                price.toInt()
+            }
+
+            // Access quantity for the current item
+            val quantity = foodItemQuantities[i]
+
+            // Update total amount
+            totalAmount += priceIntValue * quantity
+        }
+
+        return totalAmount
+    }
+
 
     private fun setUserData() {
         val user = auth.currentUser

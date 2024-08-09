@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import com.example.yummycart.R
 import com.example.yummycart.databinding.FragmentProfileBinding
 import com.example.yummycart.model.UserModel
@@ -33,10 +34,40 @@ class ProfileFragment : Fragment() {
         // Inflate the layout for this fragment
         setUserData()
 
+        binding.saveInfoButton.setOnClickListener {
+            val name =binding.name.text.toString()
+            val email= binding.email.text.toString()
+            val address=binding.address.text.toString()
+            val phone=binding.phone.text.toString()
+
+            updateUserData(name,email,address,phone)
+        }
+
         return binding.root
 
 
 
+    }
+
+    private fun updateUserData(name: String, email: String, address: String, phone: String) {
+
+        val userId = auth.currentUser?.uid
+        if (userId!=null){
+            val userReference = database.getReference("user").child(userId)
+            val userData = hashMapOf(
+                "name" to name,
+                "email" to email,
+                "address" to address,
+                "phone" to phone
+            )
+            userReference.setValue(userData).addOnSuccessListener {
+                Toast.makeText(requireContext(), "Profile Updated Successfully", Toast.LENGTH_SHORT).show()
+            }
+                .addOnFailureListener{
+                    Toast.makeText(requireContext(), "Profile Update Failed", Toast.LENGTH_SHORT).show()
+                }
+
+        }
     }
 
     private fun setUserData() {
