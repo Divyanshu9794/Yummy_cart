@@ -60,11 +60,22 @@ class PayOutActivity : AppCompatActivity() {
         binding.totalAmount.isEnabled = false
         binding.totalAmount.setText(totalamount)
 
+        binding.backbutton.setOnClickListener {
+            finish()
+        }
+
 
 
 
 
         binding.placemyorder.setOnClickListener{
+            //get data from textview
+             name = binding.name.text.toString().trim()
+             address = binding.address.text.toString().trim()
+             phone = binding.phone.text.toString().trim()
+             totalamount = binding.totalAmount.text.toString().trim()
+
+            
 
             val bottomSheetDialog =CongratsBottomSheet()
             bottomSheetDialog.show(supportFragmentManager,"Test")
