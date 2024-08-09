@@ -1,11 +1,13 @@
 package com.example.yummycart
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.yummycart.databinding.ActivityPayOutBinding
+import com.example.yummycart.model.OrderDetails
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -75,11 +77,30 @@ class PayOutActivity : AppCompatActivity() {
              phone = binding.phone.text.toString().trim()
              totalamount = binding.totalAmount.text.toString().trim()
 
-            
+            if(name.isBlank() && address.isBlank()){
+                Toast.makeText(this, "Please Fill All the Details", Toast.LENGTH_SHORT).show()
+
+            }
+            else{
+                placeOrder()
+            }
 
             val bottomSheetDialog =CongratsBottomSheet()
             bottomSheetDialog.show(supportFragmentManager,"Test")
 
+        }
+    }
+
+    private fun placeOrder() {
+        userId  = auth.currentUser?.uid?:""
+        val time = System.currentTimeMillis()
+        val itemPushKey = databaseReference.child("OrderDetails").push().key
+        val orderDetails  =OrderDetails(userId,name,foodItemName,foodItemPrice,foodItemImage,foodItemQuantities,address,phone,time,itemPushKey,false,false)
+
+
+        val orderReference = databaseReference.child("OrderDetails").child(itemPushKey!!)
+        orderReference.setValue(orderDetails).addOnSuccessListener {
+            Toast.makeText(this, "Order Placed Successfully", Toast.LENGTH_SHORT).show()
         }
     }
 
