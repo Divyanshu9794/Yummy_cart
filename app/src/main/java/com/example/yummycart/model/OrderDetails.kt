@@ -2,6 +2,7 @@ package com.example.yummycart.model
 
 import android.os.Parcel
 import android.os.Parcelable
+import java.time.temporal.TemporalAmount
 import java.util.ArrayList
 
 class OrderDetails():Parcelable {
@@ -39,12 +40,29 @@ class OrderDetails():Parcelable {
         foodItemImage: ArrayList<String>,
         foodItemQuantities: ArrayList<Int>,
         address: String,
-        phone: String,
+        totalAmount:String,
+        phone:String,
         time: Long,
         itemPushKey: String?,
         b: Boolean,
         b1: Boolean
-    ) : this()
+    ) : this(){
+        this.userUid = userId
+        this.userName = name
+        this.foodNames = foodItemName
+        this.foodPrices = foodItemPrice
+        this.foodImages = foodItemImage
+        this.foodQuantities = foodItemQuantities
+        this.address = address
+        this.totalPrice = totalAmount
+        this.phoneNumber = phone
+        this.currentItem = time
+        this.itemPushKey = itemPushKey
+        this.orderAccepted = orderAccepted
+        this.paymentReceived = paymentReceived
+
+
+    }
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeString(userUid)
