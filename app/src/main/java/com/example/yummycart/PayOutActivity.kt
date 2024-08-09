@@ -85,9 +85,7 @@ class PayOutActivity : AppCompatActivity() {
                 placeOrder()
             }
 
-            val bottomSheetDialog =CongratsBottomSheet()
-            bottomSheetDialog.show(supportFragmentManager,"Test")
-
+            
         }
     }
 

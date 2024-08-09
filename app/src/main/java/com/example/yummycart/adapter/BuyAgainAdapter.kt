@@ -21,9 +21,9 @@ class BuyAgainAdapter(private val buyAgainFoodname: ArrayList<String>,private va
     class BuyagainViewHolder(private val binding: BuyAgainItemBinding):RecyclerView.ViewHolder(binding.root) {
         fun bind(foodName: String, foodPrice: String, foodImage: Int) {
 
-            binding.BuyAgainFoodName.text =foodName
-            binding.BuyAgainFoodPrice.text =foodPrice
-            binding.BuyAgainFoodImage.setImageResource(foodImage)
+            binding.buyAgainFoodName.text =foodName
+            binding.buyAgainFoodPrice.text =foodPrice
+            binding.buyAgainFoodImage.setImageResource(foodImage)
         }
 
     }
