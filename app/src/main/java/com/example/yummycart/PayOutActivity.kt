@@ -100,7 +100,9 @@ class PayOutActivity : AppCompatActivity() {
 
         val orderReference = databaseReference.child("OrderDetails").child(itemPushKey!!)
         orderReference.setValue(orderDetails).addOnSuccessListener {
-            Toast.makeText(this, "Order Placed Successfully", Toast.LENGTH_SHORT).show()
+            val bottomSheetDialog = CongratsBottomSheet()
+            bottomSheetDialog.show(supportFragmentManager,"Test")
+            
         }
     }
 
