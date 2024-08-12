@@ -34,13 +34,20 @@ class ProfileFragment : Fragment() {
         // Inflate the layout for this fragment
         setUserData()
 
+        binding.apply {
+            name.isEnabled=false
+            address.isEnabled=false
+            email.isEnabled=false
+            phone.isEnabled=false
+        }
+
         binding.editButton.setOnClickListener {
             binding.apply {
-                name.isEnabled=true
-                address.isEnabled=true
-                email.isEnabled=true
-                phone.isEnabled=true
-                editButton.visibility=View.GONE
+
+                name.isEnabled=!name.isEnabled
+                address.isEnabled=!address.isEnabled
+                email.isEnabled=!email.isEnabled
+                phone.isEnabled=!phone.isEnabled
             }
         }
         binding.saveInfoButton.setOnClickListener {
