@@ -23,9 +23,12 @@ class RecentOrderItems : AppCompatActivity() {
         setContentView(binding.root)
 
         val recentOrderItems = intent.getSerializableExtra("RecentBuyOrderItem") as? ArrayList1<OrderDetails>
-        recentOrderItems?.let { orderDetails ->
-            if(orderDetails.isEmpty()){
-                val recentOrderItem = orderDetails[0]
+
+        binding.backbutton.setOnClickListener {
+            finish()
+        }
+        if (recentOrderItems != null && recentOrderItems.isNotEmpty()){
+                val recentOrderItem = recentOrderItems[0]
                 allFoodName = recentOrderItem.foodNames as ArrayList1<String>
 
                 allFoodImage = recentOrderItem.foodImages as ArrayList1<String>
@@ -35,7 +38,15 @@ class RecentOrderItems : AppCompatActivity() {
 
             }
 
+
+        else {
+            // Handle the case of an emptyor null list
+            allFoodName = ArrayList1()
+            allFoodImage = ArrayList1()
+            allFoodPrice = ArrayList1()
+            allFoodQuantities = ArrayList1()
         }
+
         setAdapter()
     }
 

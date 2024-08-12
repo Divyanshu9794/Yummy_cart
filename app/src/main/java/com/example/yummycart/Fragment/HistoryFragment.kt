@@ -30,6 +30,10 @@ class HistoryFragment : Fragment() {
     private var listOfOrderItems: ArrayList<OrderDetails> = arrayListOf()
 
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
