@@ -93,7 +93,32 @@ class HistoryFragment : Fragment() {
                 val uri = Uri.parse(image)
                 Glide.with(requireContext()).load(uri).into(buyAgainFoodImage)
 
+
+                listOfOrderItems.reverse()
+                if(listOfOrderItems.isNotEmpty()){
+                    setDataInRecentBuyItem()
+                    setPreviousBuyItemRecyclerView()
+                }
+
             }
+        }
+    }
+
+    private fun setPreviousBuyItemRecyclerView() {
+        val buyAgainFoodName = mutableListOf<String>()
+        val buyAgainFoodprice = mutableListOf<String>()
+        val buyAgainFoodImage = mutableListOf<String>()
+        for (i in 1 until listOfOrderItems.size){
+            listOfOrderItems[i].foodNames?.firstOrNull()?.let {
+                buyAgainFoodName.add(it)
+            }
+            listOfOrderItems[i].foodPrices?.firstOrNull()?.let {
+                buyAgainFoodprice.add(it)
+            }
+            listOfOrderItems[i].foodImages?.firstOrNull()?.let {
+                buyAgainFoodImage.add(it)
+            }
+            
         }
     }
 
