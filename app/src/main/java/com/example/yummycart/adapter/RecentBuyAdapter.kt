@@ -1,9 +1,11 @@
 package com.example.yummycart.adapter
 
 import android.content.Context
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.yummycart.databinding.RecentBuyItemBinding
 
 class RecentBuyAdapter(
@@ -11,7 +13,7 @@ class RecentBuyAdapter(
     private var foodNameList: ArrayList<String>,
     private var foodImageList: ArrayList<String>,
     private var foodPriceList: ArrayList<String>,
-    private var foodQuantityList: ArrayList<String>
+    private var foodQuantityList: ArrayList<Int>
 ) : RecyclerView.Adapter<RecentBuyAdapter.RecentViewHolder>() {
 
 
@@ -34,7 +36,11 @@ class RecentBuyAdapter(
             binding.apply {
                 foodName.text = foodNameList[position]
                 foodPrice.text = foodPriceList[position]
-                foodQuantity.text = foodQuantityList[position]
+                foodQuantity.text = foodQuantityList[position].toString()
+
+                val uriString = foodImageList[position]
+                val uri = Uri.parse(uriString)
+                Glide.with(context).load(uri).into(foodImage)
 
             }
 

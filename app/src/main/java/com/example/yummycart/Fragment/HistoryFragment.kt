@@ -9,11 +9,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
-import com.example.yummycart.R
 import com.example.yummycart.adapter.BuyAgainAdapter
 import com.example.yummycart.databinding.FragmentHistoryBinding
 import com.example.yummycart.model.OrderDetails
-import com.example.yummycart.recentOrderItems
+import com.example.yummycart.RecentOrderItems
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -28,13 +27,9 @@ class HistoryFragment : Fragment() {
     private lateinit var database: FirebaseDatabase
     private lateinit var auth: FirebaseAuth
     private lateinit var userId: String
-    private var listOfOrderItems: MutableList<OrderDetails> = mutableListOf()
+    private var listOfOrderItems: ArrayList<OrderDetails> = arrayListOf()
 
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -49,7 +44,7 @@ class HistoryFragment : Fragment() {
 
         retrieveBuyHistory()
 
-        binding.recentBuyItem.setOnClickListener {
+        binding.recentBuyIte.setOnClickListener {
             seeItemRecentBuy()
         }
         return binding.root
@@ -57,15 +52,15 @@ class HistoryFragment : Fragment() {
 
     private fun seeItemRecentBuy() {
         listOfOrderItems.firstOrNull()?.let { recentBuy->
-            val intent = Intent(requireContext(), recentOrderItems::class.java)
-            intent.putExtra("RecentBuyOrderItem",recentBuy)
+            val intent = Intent(requireContext(), RecentOrderItems::class.java)
+            intent.putExtra("RecentBuyOrderItem", listOfOrderItems)
             startActivity(intent)
         }
     }
 
     private fun retrieveBuyHistory() {
 
-        binding.recentBuyItem.visibility = View.INVISIBLE
+        binding.recentBuyIte.visibility = View.INVISIBLE
         userId = auth.currentUser?.uid ?: ""
 
         val buyItemReference: DatabaseReference =
@@ -97,7 +92,7 @@ class HistoryFragment : Fragment() {
     }
 
     private fun setDataInRecentBuyItem() {
-        binding.recentBuyItem.visibility = View.VISIBLE
+        binding.recentBuyIte.visibility = View.VISIBLE
         val recentOrderItem = listOfOrderItems.firstOrNull()
         recentOrderItem?.let {
             with(binding) {

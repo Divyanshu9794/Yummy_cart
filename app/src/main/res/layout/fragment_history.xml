@@ -37,7 +37,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textView20">
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/recentBuyItem"
+                android:id="@+id/recentBuyIte"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
@@ -82,7 +82,7 @@
                     android:layout_marginEnd="32dp"
                     app:cardBackgroundColor="#4CAF50"
                     app:cardCornerRadius="20dp"
-                    app:layout_constraintBottom_toTopOf="@+id/appCompatButton"
+                    app:layout_constraintBottom_toTopOf="@+id/receivedbutton"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
 
