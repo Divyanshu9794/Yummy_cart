@@ -1,5 +1,6 @@
 package com.example.yummycart.Fragment
 
+import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -47,7 +48,16 @@ class HistoryFragment : Fragment() {
 
         retrieveBuyHistory()
 
+        binding.recentBuyItem.setOnClickListener {
+            seeItemRecentBuy()
+        }
         return binding.root
+    }
+
+    private fun seeItemRecentBuy() {
+        listOfOrderItems.firstOrNull()?.let { recentBuy->
+            val intent = Intent(requireContext(),)
+        }
     }
 
     private fun retrieveBuyHistory() {
@@ -97,7 +107,7 @@ class HistoryFragment : Fragment() {
 
                 listOfOrderItems.reverse()
                 if (listOfOrderItems.isNotEmpty()) {
-                    
+
                 }
 
             }
