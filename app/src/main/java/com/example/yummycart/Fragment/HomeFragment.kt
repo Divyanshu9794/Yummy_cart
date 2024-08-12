@@ -4,9 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
 import android.widget.Toast
-import androidx.appcompat.view.menu.MenuAdapter
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.denzcoskun.imageslider.constants.ScaleTypes
@@ -14,7 +12,6 @@ import com.denzcoskun.imageslider.interfaces.ItemClickListener
 import com.denzcoskun.imageslider.models.SlideModel
 import com.example.yummycart.MenuBottomSheetFragment
 import com.example.yummycart.R
-import com.example.yummycart.adapter.PopularAdapter
 import com.example.yummycart.databinding.FragmentHomeBinding
 import com.example.yummycart.model.MenuItem
 import com.google.firebase.database.DataSnapshot
