@@ -81,7 +81,7 @@ class HistoryFragment : Fragment() {
 
         val buyItemReference: DatabaseReference =
             database.reference.child("user").child(userId).child("ByHistory")
-        val shortingQuery = buyItemReference.orderByChild("currentTime")
+        val shortingQuery = buyItemReference.orderByChild("currentItem")
         shortingQuery.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 for (buySnapshot in snapshot.children) {
