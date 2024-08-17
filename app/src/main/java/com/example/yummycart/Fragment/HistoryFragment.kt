@@ -19,6 +19,7 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import android.graphics.Color
 
 
 class HistoryFragment : Fragment() {
@@ -51,7 +52,18 @@ class HistoryFragment : Fragment() {
         binding.recentBuyIte.setOnClickListener {
             seeItemRecentBuy()
         }
+
+        binding.receivedButton.setOnClickListener {
+            updateOrderStatus()
+        }
         return binding.root
+    }
+
+    private fun updateOrderStatus() {
+
+        val itemPushKey = listOfOrderItems[0].itemPushKey
+        val completeOrderReference = database.reference.child("CompletedOrder").child(itemPushKey!!)
+        completeOrderReference.child("paymentReceived").setValue(true)
     }
 
     private fun seeItemRecentBuy() {
@@ -107,9 +119,11 @@ class HistoryFragment : Fragment() {
                 Glide.with(requireContext()).load(uri).into(buyAgainFoodImage)
 
 
-                listOfOrderItems.reverse()
-                if (listOfOrderItems.isNotEmpty()) {
+                val isOrderIsAccepted = listOfOrderItems[0].orderAccepted
 
+                if(isOrderIsAccepted){
+                    orderstatus.background.setTint(Color.GREEN)
+                    receivedButton.visibility = View.VISIBLE
                 }
 
             }

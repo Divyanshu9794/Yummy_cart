@@ -79,29 +79,27 @@
                     android:id="@+id/orderstatus"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:layout_marginEnd="32dp"
-                    app:cardBackgroundColor="#4CAF50"
+                    android:layout_marginEnd="40dp"
+                    app:cardBackgroundColor="#DBDCDB"
                     app:cardCornerRadius="20dp"
-                    app:layout_constraintBottom_toTopOf="@+id/receivedbutton"
+                    app:layout_constraintBottom_toTopOf="@+id/receivedButton"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
+                    app:layout_constraintTop_toTopOf="parent" />
 
-                </androidx.cardview.widget.CardView>
 
-                <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/receivedbutton"
-
-                    android:layout_width="60dp"
-                    android:layout_height="20dp"
-                    android:layout_marginTop="4dp"
-                    android:background="@drawable/addtocartshape"
+                <Button
+                    android:id="@+id/receivedButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/texy_color"
+                    android:visibility="invisible"
                     android:text="Received"
-                    android:textAllCaps="false"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="@+id/orderstatus"
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toStartOf="@+id/orderstatus"
                     app:layout_constraintTop_toBottomOf="@+id/orderstatus" />
+
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
